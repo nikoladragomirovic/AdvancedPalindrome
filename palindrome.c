@@ -5,7 +5,7 @@
 #define DECIMAL 10
 #define HEXADECIMAL 16
 
-static void print_palindromes(const int32_t target, const int32_t base);
+void print_palindromes(const int32_t target, const int32_t base);
 static int8_t is_palindrome(const int32_t num, const int32_t base);
 
 static int8_t is_palindrome(const int32_t num, const int32_t base)
@@ -24,9 +24,9 @@ static int8_t is_palindrome(const int32_t num, const int32_t base)
     return (int8_t)(num == reversed_num ? 1 : 0);
 }
 
-static void print_palindromes(const int32_t target, const int32_t base)
+void print_palindromes(const int32_t target, const int32_t base)
 {
-    if (target <= 0)
+    if (target > 0 && target == (int32_t)target)
     {
         for (int32_t i = 0; i < target; i++)
         {
@@ -51,29 +51,6 @@ static void print_palindromes(const int32_t target, const int32_t base)
     }
     else
     {
-        printf("Target number must be greater than 0.\n");
+        printf("Invalid target number (Less than zero or non-integer type)\n");
     }
-}
-
-int main()
-{
-    int32_t target, base;
-
-    while (1)
-    {
-        printf("Enter a target number (or -1 to exit): ");
-        scanf("%" SCNd32, &target);
-
-        if (target == -1)
-        {
-            break;
-        }
-
-        printf("Enter the base (8 for octal, 10 for decimal, 16 for hexadecimal): ");
-        scanf("%" SCNd32, &base);
-
-        print_palindromes(target, base);
-    }
-
-    return 0;
 }
