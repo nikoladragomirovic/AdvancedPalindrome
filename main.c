@@ -2,20 +2,24 @@
 
 int main()
 {
-    int32_t target, base;
+    uintmax_t target;
+    uint_least8_t base;
 
     while (1)
     {
-        printf("Enter a target number (or -1 to exit): ");
-        scanf("%" SCNd32, &target);
-
-        if (target == -1)
+        printf("\nEnter a target number: ");
+        if (scanf(" %" SCNuMAX, &target) != 1)
         {
-            break;
+            printf("Invalid input for target.\n");
+            return 1;
         }
 
-        printf("Enter the base (8 for octal, 10 for decimal, 16 for hexadecimal): ");
-        scanf("%" SCNd32, &base);
+        printf("\nEnter the base: ");
+        if (scanf(" %" SCNuLEAST8, &base) != 1)
+        {
+            printf("Invalid input for base.\n");
+            return 1;
+        }
 
         print_palindromes(target, base);
     }
