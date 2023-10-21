@@ -4,6 +4,10 @@
 /* can't avoid using std input/output lib so disabled MISRA-C rule */
 #pragma CHECK_MISRA("-20.9")
 
+#define OCTAL 8
+#define DECIMAL 10
+#define HEXADECIMAL 16
+
 /* function prototypes to align with MISRA-C */
 /* working with natural numbers, hence uint */
 void print_palindromes(const uintmax_t target, const uint_least8_t base);
@@ -36,7 +40,7 @@ static uint_least8_t is_palindrome(const uintmax_t num, const uint_least8_t base
 void print_palindromes(const uintmax_t target, const uint_least8_t base)
 {
     /* check for base */
-    if (base == UINT8_C(8) || base == UINT8_C(10) || base == UINT8_C(16))
+    if ((base == UINT8_C(OCTAL)) || (base == UINT8_C(DECIMAL)) || (base == UINT8_C(HEXADECIMAL)))
     {
         /* skips single digit numbers since they are always palindromes */
         for (uintmax_t i = (uintmax_t)base; i < target; i++)
@@ -46,13 +50,13 @@ void print_palindromes(const uintmax_t target, const uint_least8_t base)
                 /* opted for switch instead of lookup table since switch is simple and lookup table would take up more memory*/
                 switch (base)
                 {
-                case UINT8_C(8):
+                case UINT8_C(OCTAL):
                     printf("%" PRIoMAX "\n", i);
                     break;
-                case UINT8_C(10):
+                case UINT8_C(DECIMAL):
                     printf("%" PRIuMAX "\n", i);
                     break;
-                case UINT8_C(16):
+                case UINT8_C(HEXADECIMAL):
                     printf("%" PRIXMAX "\n", i);
                     break;
                 /* default condition to account for non-defined bases */
