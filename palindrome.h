@@ -8,7 +8,6 @@
 #define DECIMAL 10
 #define HEXADECIMAL 16
 
-void print_palindromes(const int32_t target, const int32_t base);
-static int8_t is_palindrome(const int32_t num, const int32_t base);
+void print_palindromes(const uintmax_t target, const uint_least8_t base);
 
 #endif
