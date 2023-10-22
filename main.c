@@ -7,8 +7,9 @@ int main()
 
     while (1)
     {
+
         printf("\nEnter a target number: ");
-        if (scanf(" %" SCNuMAX, &target) != 1)
+        if (scanf(" %" SCNiMAX, &target) != 1)
         {
             printf("Invalid input for target.\n");
             return 1;

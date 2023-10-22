@@ -1,5 +1,5 @@
 
 .DS_Store
-.vscode/tasks.json
+.vscode/
 test
-Documentation/Todo.txt
+Documentation/
